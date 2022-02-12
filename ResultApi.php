@@ -8,7 +8,9 @@ class ResultApi {
   private array $config;
 
   public function __construct() {
-    $this->config = json_decode(file_get_contents('config.json'), TRUE);
+    $config = file_get_contents('config.json');
+    $config = str_replace('/', '//', $config);
+    $this->config = json_decode($config, TRUE);
   }
 
   public function getResults() {
