@@ -9,7 +9,6 @@ class ResultApi {
 
   public function __construct() {
     $config = file_get_contents('config.json');
-    $config = str_replace('/', '//', $config);
     $this->config = json_decode($config, TRUE);
   }
 
