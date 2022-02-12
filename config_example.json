@@ -1,3 +1,6 @@
 {
-  "path-to-servers": "results"
+  "paths_to_results": [
+    "results/kylami-gt3s4-practice",
+    "results/simgrid test 1"
+  ]
 }

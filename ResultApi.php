@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 class ResultApi {
 
@@ -9,8 +12,7 @@ class ResultApi {
   }
 
   public function getResults() {
-    $folders = glob($this->config['path-to-servers'] . '/*', GLOB_ONLYDIR);
-    echo '<pre>'; var_dump($folders);  echo '</pre>';
+    $folders = $this->config['paths_to_results'];
     $results = [];
 
     foreach ($folders as $folder) {
