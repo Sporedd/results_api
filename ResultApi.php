@@ -2,8 +2,15 @@
 
 class ResultApi {
 
+  private array $config;
+
+  public function __construct() {
+    $this->config = json_decode(file_get_contents('config.json'), TRUE);
+  }
+
   public function getResults() {
-    $folders = glob('results/*', GLOB_ONLYDIR);
+    $folders = glob($this->config['path-to-servers'] . '/*', GLOB_ONLYDIR);
+    echo '<pre>'; var_dump($folders);  echo '</pre>';
     $results = [];
 
     foreach ($folders as $folder) {

@@ -1,8 +1,5 @@
 <?php
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-
-$debug = FALSE;
+$debug = TRUE;
 
 if ($debug || isset($_POST['AUTH_KEY']) && $_POST['AUTH_KEY'] === 'gasdg51sdr6g51ser61g6sdr1g') {
   include 'ResultApi.php';
