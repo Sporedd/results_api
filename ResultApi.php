@@ -1,19 +1,9 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 
 class ResultApi {
-
-  private array $config;
-
-  public function __construct() {
-    $config = file_get_contents('config.json');
-    $this->config = json_decode($config, TRUE);
-  }
-
-  public function getResults() {
-    $folders = $this->config['paths_to_results'];
+  public function getResults($serverPath) {
+    $folders = [$serverPath];
     $results = [];
 
     foreach ($folders as $folder) {
