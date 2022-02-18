@@ -2,16 +2,14 @@
 
 
 class ResultApi {
+
   public function getResults($serverPath) {
-    $folders = [$serverPath];
     $results = [];
 
-    foreach ($folders as $folder) {
-      foreach (glob($folder . '/*.json') as $file) {
-        $filetext = file_get_contents($file);
-        $filetext = mb_convert_encoding($filetext, "UTF-8", "UTF-16LE");
-        $results[$folder][] = json_decode($filetext, TRUE);
-      }
+    foreach (glob($serverPath . '/*.json') as $file) {
+      $filetext = file_get_contents($file);
+      $filetext = mb_convert_encoding($filetext, "UTF-8", "UTF-16LE");
+      $results[] = json_decode($filetext, TRUE);
     }
 
     return $results;
